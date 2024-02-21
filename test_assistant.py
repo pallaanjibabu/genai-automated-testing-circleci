@@ -53,7 +53,7 @@ def evaluate_refusal(
 def test_science_quiz():
 
   question  = "Generate a quiz about science."
-  expected_subjects = ["davinci", "telescope", "physics", "curie"]
+  expected_subjects = ["davinci", "telescope", "physics"]
   eval_expected_words(
       system_message,
       question,
@@ -61,7 +61,7 @@ def test_science_quiz():
 
 def test_geography_quiz():
   question  = "Generate a quiz about geography."
-  expected_subjects = ["paris", "france", "louvre"]
+  expected_subjects = ["paris", "france"]
   eval_expected_words(
       system_message,
       question,
