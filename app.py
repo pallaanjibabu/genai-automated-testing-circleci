@@ -67,11 +67,15 @@ Question 3:{delimiter} <question 3>
 If the user asks about a subject you do not have information about, tell them "I'm sorry, but I do not have information on that topic."
 """
 
-def assistant_chain():
-  human_template  = "{question}"
+
+def assistant_chain(
+    system_message,
+    human_template="{question}",
+    llm=ChatOpenAI(model="gpt-3.5-turbo", temperature=0),
+    output_parser=StrOutputParser()):
 
   chat_prompt = ChatPromptTemplate.from_messages([
       ("system", system_message),
       ("human", human_template),
   ])
-  return chat_prompt | ChatOpenAI(model="gpt-3.5-turbo", temperature=0) | StrOutputParser()
+  return chat_prompt | llm | output_parser
