@@ -194,6 +194,7 @@ def _trigger_circle_pipline(repo_name, branch, token, params=None):
         json={"branch": branch, "parameters": params},
     )
     pipeline_data = r.json()
+    print(pipeline_data)
     pipeline_number = pipeline_data["number"]
     print(
         f"Please visit https://app.circleci.com/pipelines/github/{repo_name}/{pipeline_number}"
